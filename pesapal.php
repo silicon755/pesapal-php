@@ -866,9 +866,9 @@ if(!class_exists("PesaPal") ) {
 			$statusrequestAPI = self::$env == 'sandbox' ? 'https://demo.pesapal.com/api/querypaymentstatus' : 'https://pesapal.com/api/querypaymentstatus';
 
 			// Parameters sent to you by PesaPal IPN
-			$pesapalNotification 			= $_GET['pesapal_notification_type'];
-			$pesapalTrackingId 				= $_GET['pesapal_transaction_tracking_id'];
-			$pesapal_merchant_reference 	= $_GET['pesapal_merchant_reference'];
+			$pesapalNotification 			=  (isset($_GET['pesapal_notification_type']));
+			$pesapalTrackingId 				=  (isset($_GET['pesapal_transaction_tracking_id']));
+			$pesapal_merchant_reference 	=  (isset($_GET['pesapal_merchant_reference']));
 
 			if( $pesapalNotification == "CHANGE" && $pesapalTrackingId!='' ) {
 			   $token = $params = NULL;
